@@ -2,13 +2,10 @@ def unscramble_codes():
     scrambled_codes = read_codes()
     calibration_value = 0
     for code in scrambled_codes.splitlines():
-        digits = [x for x in [*code] if x.isdigit()]
 
-        if len(digits) == 1:
-            unscrambled_code = int(digits[0] + digits[0])
-        else:
-            unscrambled_code = int(digits[0] + digits[-1])
-        calibration_value += unscrambled_code
+        digits = [x for x in [*code] if x.isdigit()]
+        calibration_value += int(digits[0] + digits[-1])
+
     return calibration_value
 
 
